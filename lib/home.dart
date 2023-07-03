@@ -49,11 +49,14 @@ class _HomeScreenState extends State<HomeScreen> {
               itemBuilder: (context, index) {
                 final reversedIndex = messages.length - 1 - index;
                 final message = messages[reversedIndex];
-                Color msgColor = Colors.blueGrey;
+                Color msgBgColor = Colors.blueGrey;
+                Color txtColor = Colors.white;
                 if (reversedIndex % 2 == 0) {
-                  msgColor = Colors.blueGrey;
+                  msgBgColor = Colors.blueGrey;
+                  txtColor = Colors.white;
                 } else {
-                  msgColor = Colors.pink;
+                  msgBgColor = Colors.white70;
+                  txtColor = Colors.black;
                 }
                 return Padding(
                   padding: const EdgeInsets.symmetric(
@@ -63,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(100),
                     ),
                     elevation: 1,
-                    color: msgColor,
+                    color: msgBgColor,
                     margin:
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     child: Padding(
@@ -74,8 +77,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         textAlign: TextAlign.center,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 100,
-                        style: const TextStyle(
-                            color: Colors.white,
+                        style: TextStyle(
+                            color: txtColor,
                             fontSize: 16,
                             fontWeight: FontWeight.bold),
                       ),
